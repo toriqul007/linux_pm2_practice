@@ -24,6 +24,11 @@ kittens=[
         'name':'MrBigg',
         'age': 19,
         'color': 'Purple'
+    },
+    {
+        'name':'Tommy',
+        'age': 10,
+        'color': 'White'
     }
 ]
 
