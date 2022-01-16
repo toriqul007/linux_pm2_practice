@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitten Lovers</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+</head>
+<body>
+
+    <h3>Create Kitten</h3>
+    
+    <!-- action is which route to send the form data
+    method='post' is required when sending data 
+    to the server -->
+    <form id='form1'action="/add-kitten" method="post">
+        <!-- input must have the name attribute
+        to enable getting the value in the route -->
+    <input name="name" placeholder="name" autocomplete="off">
+    <br>
+    <input name="age" placeholder="age" autocomplete="off">
+    <br>
+    <input name="color" placeholder="color" autocomplete="off">
+    <br>
+    <button>Add kitten</button>
+    </form>
+    
+    <br>
+    <br>
+    <!-- loop through al list -->
+    {%for kitten in kittens%}
+      <div id='div1' style="background:  {{kitten['color']}} ;">
+        <h4>{{loop.index}} name: {{kitten['name']}}</h4>
+        <p>age : {{kitten['age']}}</p>
+        <p>Color : {{kitten['color']}}</p>
+        <!--  -->
+        <a href="/remove/{{loop.index}}">🗑️</a>
+      </div>
+    {%endfor%}
+
+    {% if cool==True %}
+      <h1>I am cool</h1>
+    {%else%}
+      <h1>I am not cool</h1>
+    {%endif%}
+
+</body>
+</html>
